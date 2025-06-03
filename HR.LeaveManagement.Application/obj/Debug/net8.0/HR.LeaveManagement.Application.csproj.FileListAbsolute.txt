@@ -1,0 +1,15 @@
+C:\Users\abu21\OneDrive\Desktop\CREDO\CleanArchitecture\HR.LeaveManagement\HR.LeaveManagement.Application\bin\Debug\net8.0\HR.LeaveManagement.Application.deps.json
+C:\Users\abu21\OneDrive\Desktop\CREDO\CleanArchitecture\HR.LeaveManagement\HR.LeaveManagement.Application\bin\Debug\net8.0\HR.LeaveManagement.Application.dll
+C:\Users\abu21\OneDrive\Desktop\CREDO\CleanArchitecture\HR.LeaveManagement\HR.LeaveManagement.Application\bin\Debug\net8.0\HR.LeaveManagement.Application.pdb
+C:\Users\abu21\OneDrive\Desktop\CREDO\CleanArchitecture\HR.LeaveManagement\HR.LeaveManagement.Application\bin\Debug\net8.0\HR.LeaveManagement.Domain.dll
+C:\Users\abu21\OneDrive\Desktop\CREDO\CleanArchitecture\HR.LeaveManagement\HR.LeaveManagement.Application\bin\Debug\net8.0\HR.LeaveManagement.Domain.pdb
+C:\Users\abu21\OneDrive\Desktop\CREDO\CleanArchitecture\HR.LeaveManagement\HR.LeaveManagement.Application\obj\Debug\net8.0\HR.LeaveManagement.Application.csproj.AssemblyReference.cache
+C:\Users\abu21\OneDrive\Desktop\CREDO\CleanArchitecture\HR.LeaveManagement\HR.LeaveManagement.Application\obj\Debug\net8.0\HR.LeaveManagement.Application.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\abu21\OneDrive\Desktop\CREDO\CleanArchitecture\HR.LeaveManagement\HR.LeaveManagement.Application\obj\Debug\net8.0\HR.LeaveManagement.Application.AssemblyInfoInputs.cache
+C:\Users\abu21\OneDrive\Desktop\CREDO\CleanArchitecture\HR.LeaveManagement\HR.LeaveManagement.Application\obj\Debug\net8.0\HR.LeaveManagement.Application.AssemblyInfo.cs
+C:\Users\abu21\OneDrive\Desktop\CREDO\CleanArchitecture\HR.LeaveManagement\HR.LeaveManagement.Application\obj\Debug\net8.0\HR.LeaveManagement.Application.csproj.CoreCompileInputs.cache
+C:\Users\abu21\OneDrive\Desktop\CREDO\CleanArchitecture\HR.LeaveManagement\HR.LeaveManagement.Application\obj\Debug\net8.0\HR.Leave.CEB84392.Up2Date
+C:\Users\abu21\OneDrive\Desktop\CREDO\CleanArchitecture\HR.LeaveManagement\HR.LeaveManagement.Application\obj\Debug\net8.0\HR.LeaveManagement.Application.dll
+C:\Users\abu21\OneDrive\Desktop\CREDO\CleanArchitecture\HR.LeaveManagement\HR.LeaveManagement.Application\obj\Debug\net8.0\refint\HR.LeaveManagement.Application.dll
+C:\Users\abu21\OneDrive\Desktop\CREDO\CleanArchitecture\HR.LeaveManagement\HR.LeaveManagement.Application\obj\Debug\net8.0\HR.LeaveManagement.Application.pdb
+C:\Users\abu21\OneDrive\Desktop\CREDO\CleanArchitecture\HR.LeaveManagement\HR.LeaveManagement.Application\obj\Debug\net8.0\ref\HR.LeaveManagement.Application.dll
