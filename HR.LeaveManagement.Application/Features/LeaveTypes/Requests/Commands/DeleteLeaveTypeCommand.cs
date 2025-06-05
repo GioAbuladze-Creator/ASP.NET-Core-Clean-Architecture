@@ -3,11 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using HR.LeaveManagement.Application.Responses;
+using HR.LeaveManagement.Domain;
 using MediatR;
 
 namespace HR.LeaveManagement.Application.Features.LeaveTypes.Requests.Commands
 {
-    public class DeleteLeaveTypeCommand : IRequest<Unit>
+    public class DeleteLeaveTypeCommand : IRequest<BaseCommandResponse<LeaveType>>
     {
         public int Id { get; set; }
     }

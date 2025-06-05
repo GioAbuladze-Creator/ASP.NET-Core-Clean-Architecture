@@ -4,11 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using HR.LeaveManagement.Application.DTOs.LeaveAllocation;
+using HR.LeaveManagement.Application.Responses;
+using HR.LeaveManagement.Domain;
 using MediatR;
 
 namespace HR.LeaveManagement.Application.Features.LeaveAllocations.Requests.Commands
 {
-    public class CreateLeaveAllocationCommand : IRequest<int>
+    public class CreateLeaveAllocationCommand : IRequest<BaseCommandResponse<LeaveAllocation>>
     {
         public CreateLeaveAllocationDto LeaveAllocationDto { get; set; }
     }
