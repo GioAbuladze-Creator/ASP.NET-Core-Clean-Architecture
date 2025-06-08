@@ -39,7 +39,7 @@ namespace HR.LeaveManagement.Application.Features.LeaveTypes.Handlers.Commands
 
             leaveType = await _leaveTypeRepository.Add(leaveType);
 
-            return new BaseCommandResponse<LeaveType>(true, "Created Successfully", leaveType, null);
+            return new BaseCommandResponse<LeaveType>(true, "Created Successfully.", leaveType, null);
         }
     }
 }

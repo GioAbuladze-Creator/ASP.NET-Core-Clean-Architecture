@@ -8,7 +8,6 @@ namespace HR.LeaveManagement.Application.Responses
 {
     public class BaseCommandResponse<T>
     {
-
         public bool IsSuccess { get; } = true;
         public string? Message { get; }
         public T? Value { get; }
