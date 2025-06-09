@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.12.35514.174 d17.12
+VisualStudioVersion = 17.12.35514.174
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{E6941473-9CCE-4489-B9E3-0F00669D1207}"
 EndProject
@@ -19,6 +19,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HR.LeaveManagement.Domain",
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HR.LeaveManagement.Application", "HR.LeaveManagement.Application\HR.LeaveManagement.Application.csproj", "{4363F2C0-539D-4644-A9DB-1820EDBB801C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HR.LeaveManagement.Infrastructure", "HR.LeaveManagement.Infrastructure\HR.LeaveManagement.Infrastructure.csproj", "{4352A118-2D0D-425D-8880-88AF09C90DB2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HR.LeaveManagement.Persistence", "HR.LeaveManagement.Persistence\HR.LeaveManagement.Persistence.csproj", "{E86EBFC4-0EB0-422D-BD1E-DC92C0B173A0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +37,14 @@ Global
 		{4363F2C0-539D-4644-A9DB-1820EDBB801C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4363F2C0-539D-4644-A9DB-1820EDBB801C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4363F2C0-539D-4644-A9DB-1820EDBB801C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4352A118-2D0D-425D-8880-88AF09C90DB2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4352A118-2D0D-425D-8880-88AF09C90DB2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4352A118-2D0D-425D-8880-88AF09C90DB2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4352A118-2D0D-425D-8880-88AF09C90DB2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E86EBFC4-0EB0-422D-BD1E-DC92C0B173A0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E86EBFC4-0EB0-422D-BD1E-DC92C0B173A0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E86EBFC4-0EB0-422D-BD1E-DC92C0B173A0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E86EBFC4-0EB0-422D-BD1E-DC92C0B173A0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -44,5 +56,7 @@ Global
 		{9EBE3237-9B09-4B9D-9556-85AFFBA86AC1} = {E6941473-9CCE-4489-B9E3-0F00669D1207}
 		{E3E6DE5A-E63A-4DFC-B68F-FBA9D86408B2} = {D30B474C-2983-4C15-B252-949FD51BA180}
 		{4363F2C0-539D-4644-A9DB-1820EDBB801C} = {D30B474C-2983-4C15-B252-949FD51BA180}
+		{4352A118-2D0D-425D-8880-88AF09C90DB2} = {787117F5-4262-4246-876B-535B27DA4F0B}
+		{E86EBFC4-0EB0-422D-BD1E-DC92C0B173A0} = {787117F5-4262-4246-876B-535B27DA4F0B}
 	EndGlobalSection
 EndGlobal
