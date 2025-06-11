@@ -17,7 +17,7 @@ namespace HR.LeaveManagement.Persistence
         {
             services.AddDbContext<LeaveManagementDbContext>(options =>
                 options.UseSqlServer(
-                    configuration.GetConnectionString("default")));
+                    configuration.GetConnectionString("Default")));
 
             services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
 
