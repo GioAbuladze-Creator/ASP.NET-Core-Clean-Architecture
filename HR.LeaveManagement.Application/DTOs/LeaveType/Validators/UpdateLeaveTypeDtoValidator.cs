@@ -20,11 +20,11 @@ namespace HR.LeaveManagement.Application.DTOs.LeaveType.Validators
 
             RuleFor(p => p.Id)
                 .GreaterThan(0)
-            .MustAsync(async (id, token) =>
-            {
-                var leaveTypeExists = await _leaveTypeRepository.Exists(id);
-                return !leaveTypeExists;
-            }).WithMessage("{PropertyName} does not exist.");
+                .MustAsync(async (id, token) =>
+                {
+                    var leaveTypeExists = await _leaveTypeRepository.Exists(id);
+                    return leaveTypeExists;
+                }).WithMessage("LeaveType with Id {PropertyValue} does not exist.");
         }
     }
 }

@@ -14,7 +14,7 @@ using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace HR.LeaveManagement.Application.Features.LeaveTypes.Handlers.Commands
 {
-    public class DeleteLeaveTypeCommandHandler : IRequestHandler<DeleteLeaveTypeCommand, BaseCommandResponse<LeaveType>>
+    public class DeleteLeaveTypeCommandHandler : IRequestHandler<DeleteLeaveTypeCommand, Result<LeaveType>>
     {
         private readonly ILeaveTypeRepository _leaveTypeRepository;
         private readonly IMapper _mapper;
@@ -24,16 +24,16 @@ namespace HR.LeaveManagement.Application.Features.LeaveTypes.Handlers.Commands
             _leaveTypeRepository = leaveTypeRepository;
             _mapper = mapper;
         }
-        public async Task<BaseCommandResponse<LeaveType>> Handle(DeleteLeaveTypeCommand request, CancellationToken cancellationToken)
+        public async Task<Result<LeaveType>> Handle(DeleteLeaveTypeCommand request, CancellationToken cancellationToken)
         {
             var leaveType = await _leaveTypeRepository.Get(request.Id);
 
             if (leaveType == null)
-                return new BaseCommandResponse<LeaveType>(false, $"LeaveType with Id {request.Id} does not exist.", null, null);
+                return new Result<LeaveType>(false, $"LeaveType with Id {request.Id} does not exist.", null, null);
 
             await _leaveTypeRepository.Delete(leaveType);
 
-            return new BaseCommandResponse<LeaveType>(true, "Deleted successfully.", leaveType, null);
+            return new Result<LeaveType>(true, "Deleted successfully.", leaveType, null);
         }
     }
 }

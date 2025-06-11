@@ -26,6 +26,8 @@ namespace HR.LeaveManagement.Persistence
                 if (entry.State == EntityState.Added)
                 {
                     entry.Entity.DateCreated = DateTime.UtcNow;
+                    entry.Entity.LastModifiedBy = "Test";
+                    entry.Entity.CreatedBy = "Test";
                 }
             }
             return base.SaveChangesAsync(cancellationToken);

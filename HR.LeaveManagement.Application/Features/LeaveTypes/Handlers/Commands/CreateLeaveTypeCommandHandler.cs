@@ -14,7 +14,7 @@ using MediatR;
 
 namespace HR.LeaveManagement.Application.Features.LeaveTypes.Handlers.Commands
 {
-    public class CreateLeaveTypeCommandHandler : IRequestHandler<CreateLeaveTypeCommand, BaseCommandResponse<LeaveType>>
+    public class CreateLeaveTypeCommandHandler : IRequestHandler<CreateLeaveTypeCommand, Result<LeaveType>>
     {
         private readonly ILeaveTypeRepository _leaveTypeRepository;
         private readonly IMapper _mapper;
@@ -24,7 +24,7 @@ namespace HR.LeaveManagement.Application.Features.LeaveTypes.Handlers.Commands
             _leaveTypeRepository = leaveTypeRepository;
             _mapper = mapper;
         }
-        public async Task<BaseCommandResponse<LeaveType>> Handle(CreateLeaveTypeCommand request, CancellationToken cancellationToken)
+        public async Task<Result<LeaveType>> Handle(CreateLeaveTypeCommand request, CancellationToken cancellationToken)
         {
             var validator = new CreateLeaveTypeDtoValidator();
             var validationResult = await validator.ValidateAsync(request.LeaveTypeDto);
@@ -32,14 +32,14 @@ namespace HR.LeaveManagement.Application.Features.LeaveTypes.Handlers.Commands
             if (validationResult.IsValid == false)
             {
                 var errors = validationResult.Errors.Select(x => x.ErrorMessage).ToList();
-                return new BaseCommandResponse<LeaveType>(false, "Creation Failed.", null, errors);
+                return new Result<LeaveType>(false, "Creation Failed.", null, errors);
             }
 
             var leaveType = _mapper.Map<LeaveType>(request.LeaveTypeDto);
 
             leaveType = await _leaveTypeRepository.Add(leaveType);
 
-            return new BaseCommandResponse<LeaveType>(true, "Created Successfully.", leaveType, null);
+            return new Result<LeaveType>(true, "Created Successfully.", leaveType, null);
         }
     }
 }

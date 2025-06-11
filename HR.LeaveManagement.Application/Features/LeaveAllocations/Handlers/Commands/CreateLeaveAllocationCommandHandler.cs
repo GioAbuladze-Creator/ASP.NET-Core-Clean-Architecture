@@ -14,7 +14,7 @@ using MediatR;
 
 namespace HR.LeaveManagement.Application.Features.LeaveAllocations.Handlers.Commands
 {
-    public class CreateLeaveAllocationCommandHandler : IRequestHandler<CreateLeaveAllocationCommand, BaseCommandResponse<LeaveAllocation>>
+    public class CreateLeaveAllocationCommandHandler : IRequestHandler<CreateLeaveAllocationCommand, Result<LeaveAllocation>>
     {
         private readonly ILeaveAllocationRepository _leaveAllocationRepository;
         private readonly ILeaveTypeRepository _leaveTypeRepository;
@@ -26,7 +26,7 @@ namespace HR.LeaveManagement.Application.Features.LeaveAllocations.Handlers.Comm
             _leaveTypeRepository = leaveTypeRepository;
             _mapper = mapper;
         }
-        public async Task<BaseCommandResponse<LeaveAllocation>> Handle(CreateLeaveAllocationCommand request, CancellationToken cancellationToken)
+        public async Task<Result<LeaveAllocation>> Handle(CreateLeaveAllocationCommand request, CancellationToken cancellationToken)
         {
             var validator = new CreateLeaveAllocationDtoValidator(_leaveTypeRepository);
             var validationResult = await validator.ValidateAsync(request.LeaveAllocationDto);
@@ -34,14 +34,14 @@ namespace HR.LeaveManagement.Application.Features.LeaveAllocations.Handlers.Comm
             if (validationResult.IsValid == false)
             {
                 var errors = validationResult.Errors.Select(x => x.ErrorMessage).ToList();
-                return new BaseCommandResponse<LeaveAllocation>(false, "Creation failed.", null, errors);
+                return new Result<LeaveAllocation>(false, "Creation failed.", null, errors);
             }
 
             var leaveAllocation = _mapper.Map<LeaveAllocation>(request.LeaveAllocationDto);
 
             leaveAllocation = await _leaveAllocationRepository.Add(leaveAllocation);
 
-            return new BaseCommandResponse<LeaveAllocation>(true, "Created successfully.", leaveAllocation, null);
+            return new Result<LeaveAllocation>(true, "Created successfully.", leaveAllocation, null);
         }
     }
 }

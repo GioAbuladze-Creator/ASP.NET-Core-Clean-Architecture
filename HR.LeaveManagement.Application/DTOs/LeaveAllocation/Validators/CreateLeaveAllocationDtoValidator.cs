@@ -18,7 +18,7 @@ namespace HR.LeaveManagement.Application.DTOs.LeaveAllocation.Validators
 
             Include(new ILeaveAllocationDtoValidator(_leaveTypeRepository));
 
-            RuleFor(p => p.Id).NotNull().WithMessage("{PropertyName} must be present.");
+            //RuleFor(p => p.Id).NotNull().WithMessage("{PropertyName} must be present.");
         }
     }
 }

@@ -14,7 +14,7 @@ using MediatR;
 
 namespace HR.LeaveManagement.Application.Features.LeaveRequests.Handers.Commands
 {
-    public class UpdateLeaveRequestCommandHandler : IRequestHandler<UpdateLeaveRequestCommand, BaseCommandResponse<LeaveRequest>>
+    public class UpdateLeaveRequestCommandHandler : IRequestHandler<UpdateLeaveRequestCommand, Result<LeaveRequest>>
     {
         private readonly ILeaveRequestRepository _leaveRequestRepository;
         private readonly ILeaveTypeRepository _leaveTypeRepository;
@@ -26,13 +26,13 @@ namespace HR.LeaveManagement.Application.Features.LeaveRequests.Handers.Commands
             _leaveTypeRepository = leaveTypeRepository;
             _mapper = mapper;
         }
-        public async Task<BaseCommandResponse<LeaveRequest>> Handle(UpdateLeaveRequestCommand request, CancellationToken cancellationToken)
+        public async Task<Result<LeaveRequest>> Handle(UpdateLeaveRequestCommand request, CancellationToken cancellationToken)
         {
             var leaveRequest = await _leaveRequestRepository.Get(request.Id);
 
             if (leaveRequest == null)
             {
-                return new BaseCommandResponse<LeaveRequest>(false, $"LeaveRequest with Id {request.Id} does not exist.", null, null);
+                return new Result<LeaveRequest>(false, $"LeaveRequest with Id {request.Id} does not exist.", null, null);
             }
 
             if (request.LeaveRequestDto != null)
@@ -43,7 +43,7 @@ namespace HR.LeaveManagement.Application.Features.LeaveRequests.Handers.Commands
                 if (validationResult.IsValid == false)
                 {
                     var errors = validationResult.Errors.Select(x => x.ErrorMessage).ToList();
-                    return new BaseCommandResponse<LeaveRequest>(false, "Update failed.", null, errors);
+                    return new Result<LeaveRequest>(false, "Update failed.", null, errors);
 
                 }
 
@@ -56,7 +56,7 @@ namespace HR.LeaveManagement.Application.Features.LeaveRequests.Handers.Commands
                 leaveRequest = await _leaveRequestRepository.ChangeApprovalStatus(leaveRequest, request.ChangeLeaveRequestApprovalDto.Approved);
             }
 
-            return new BaseCommandResponse<LeaveRequest>(true, "Updated successfully.", leaveRequest, null);
+            return new Result<LeaveRequest>(true, "Updated successfully.", leaveRequest, null);
         }
     }
 }

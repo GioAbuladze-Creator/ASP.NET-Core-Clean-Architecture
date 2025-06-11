@@ -13,7 +13,7 @@ using MediatR;
 
 namespace HR.LeaveManagement.Application.Features.LeaveAllocations.Handlers.Commands
 {
-    public class DeleteLeaveAllocationCommandHandler : IRequestHandler<DeleteLeaveAllocationCommand, BaseCommandResponse<LeaveAllocation>>
+    public class DeleteLeaveAllocationCommandHandler : IRequestHandler<DeleteLeaveAllocationCommand, Result<LeaveAllocation>>
     {
         private readonly ILeaveAllocationRepository _leaveAllocationRepository;
         private readonly IMapper _mapper;
@@ -23,18 +23,18 @@ namespace HR.LeaveManagement.Application.Features.LeaveAllocations.Handlers.Comm
             _leaveAllocationRepository = leaveAllocationRepository;
             _mapper = mapper;
         }
-        public async Task<BaseCommandResponse<LeaveAllocation>> Handle(DeleteLeaveAllocationCommand request, CancellationToken cancellationToken)
+        public async Task<Result<LeaveAllocation>> Handle(DeleteLeaveAllocationCommand request, CancellationToken cancellationToken)
         {
             LeaveAllocation leaveAllocation = await _leaveAllocationRepository.Get(request.Id);
 
             if (leaveAllocation == null)
             {
-                return new BaseCommandResponse<LeaveAllocation>(false, $"LeaveRequest with Id {request.Id} does not exist.", null, null);
+                return new Result<LeaveAllocation>(false, $"LeaveRequest with Id {request.Id} does not exist.", null, null);
             }
 
             await _leaveAllocationRepository.Delete(leaveAllocation);
 
-            return new BaseCommandResponse<LeaveAllocation>(true, "LeaveAllocation deleted sucessfully.", leaveAllocation, null);
+            return new Result<LeaveAllocation>(true, "LeaveAllocation deleted sucessfully.", leaveAllocation, null);
         }
     }
 }

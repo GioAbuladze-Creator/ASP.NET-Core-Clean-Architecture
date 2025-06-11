@@ -9,7 +9,7 @@ using MediatR;
 
 namespace HR.LeaveManagement.Application.Features.LeaveAllocations.Requests.Commands
 {
-    public class DeleteLeaveAllocationCommand : IRequest<BaseCommandResponse<LeaveAllocation>>
+    public class DeleteLeaveAllocationCommand : IRequest<Result<LeaveAllocation>>
     {
         public int Id { get; set; }
     }
