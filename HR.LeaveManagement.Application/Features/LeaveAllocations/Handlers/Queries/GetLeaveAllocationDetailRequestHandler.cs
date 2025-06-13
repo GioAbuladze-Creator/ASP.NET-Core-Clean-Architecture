@@ -30,7 +30,7 @@ namespace HR.LeaveManagement.Application.Features.LeaveAllocations.Handlers.Quer
 
             if (leaveAllocation == null)
             {
-                return new Result<LeaveAllocationDto>(false, "Incorrect Id", null, null);
+                return new Result<LeaveAllocationDto>(false, $"LeaveAllocation with Id '{request.Id}' does not exist.", null, null);
             }
 
             var leaveAllocationDto = _mapper.Map<LeaveAllocationDto>(leaveAllocation);

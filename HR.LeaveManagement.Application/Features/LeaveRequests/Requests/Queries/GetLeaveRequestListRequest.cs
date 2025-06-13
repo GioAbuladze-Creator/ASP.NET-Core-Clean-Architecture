@@ -4,11 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using HR.LeaveManagement.Application.DTOs.LeaveRequest;
+using HR.LeaveManagement.Application.Responses;
 using MediatR;
 
 namespace HR.LeaveManagement.Application.Features.LeaveRequests.Requests.Queries
 {
-    public class GetLeaveRequestListRequest : IRequest<List<LeaveRequestDto>>
+    public class GetLeaveRequestListRequest : IRequest<Result<List<LeaveRequestListDto>>>
     {
     }
 }

@@ -23,12 +23,16 @@ namespace HR.LeaveManagement.Application.DTOs.LeaveRequest.Validators
                 .GreaterThan(p => p.StartDate).WithMessage("{PropertyName} must be after {ComparisonValue}.");
 
             RuleFor(p => p.LeaveTypeId)
-                .GreaterThan(0)
                 .MustAsync(async (id, token) =>
                 {
+                    if (id <= 0)
+                    {
+                        return false;
+                    }
                     var leaveTypeExists = await _leaveTypeRepository.Exists(id);
-                    return !leaveTypeExists;
-                }).WithMessage("{PropertyName} does not exist.");
+                    return leaveTypeExists;
+                })
+                .WithMessage("{PropertyName} with Id '{PropertyValue}' does not exist.");
         }
     }
 }

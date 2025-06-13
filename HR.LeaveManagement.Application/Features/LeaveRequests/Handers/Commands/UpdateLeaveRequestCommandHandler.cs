@@ -44,7 +44,6 @@ namespace HR.LeaveManagement.Application.Features.LeaveRequests.Handers.Commands
                 {
                     var errors = validationResult.Errors.Select(x => x.ErrorMessage).ToList();
                     return new Result<LeaveRequest>(false, "Update failed.", null, errors);
-
                 }
 
                 _mapper.Map(request.LeaveRequestDto, leaveRequest);
