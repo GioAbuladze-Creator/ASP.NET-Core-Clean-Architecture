@@ -10,13 +10,13 @@ namespace HR.LeaveManagement.Application.Responses
     {
         public bool IsSuccess { get; } = true;
         public string? Message { get; }
-        public T? Value { get; }
+        public T? Data { get; }
         public List<string>? ValidationErrors { get; }
-        public Result(bool isSuccess, string message, T? value, List<string>? errors)
+        public Result(bool isSuccess, string message, T? data, List<string>? errors)
         {
             IsSuccess = isSuccess;
             Message = message;
-            Value = value;
+            Data = data;
             ValidationErrors = errors;
         }
     }
